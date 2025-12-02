@@ -56,7 +56,6 @@
     }
 
     .match-card:hover { 
-        /* transform: translateY(-2px); <-- REMOVED the 'heart-beat' jump effect */
         box-shadow: 0 6px 14px rgba(0,0,0,0.15); /* Subtly increased shadow */
         border-color: #93c5fd;
     }
@@ -446,25 +445,24 @@
 
     /**
      * Creates the mobile-only ad element with the user-specified slot ID.
+     * UPDATED to use the 320x50 fixed size ad unit (slot 8381900703).
      */
     function createAdElement() {
         const adContainer = document.createElement('div');
         // 'block md:hidden' ensures it only displays on mobile screens (up to 768px).
-        adContainer.className = 'my-5 text-center block md:hidden'; 
+        // Added flex justify-center to properly center the fixed 320px ad.
+        adContainer.className = 'my-5 flex justify-center block md:hidden'; 
         adContainer.innerHTML = `
-                 <!-- 320x50 -->
-                 <ins class="adsbygoogle"
+            <!-- Mobile Interleaved Ad Slot (320x50 - 8381900703) -->
+            <ins class="adsbygoogle"
                  style="display:inline-block;width:320px;height:50px"
                  data-ad-client="ca-pub-5525538810839147"
                  data-ad-slot="8381900703"></ins>
-                 <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-                 </script>
         `;
         return adContainer;
     }
 
-    // UPDATED: Now inserts mobile ads after every 3rd card.
+    // UPDATED: Inserts mobile ads after every 3rd card.
     function renderMatches() {
         const list = document.getElementById('cricket-list');
         list.innerHTML = ''; 
