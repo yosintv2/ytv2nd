@@ -1,61 +1,546 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YoSinTV - Cricket | Football | Playing XI | Match Preview</title>
-  <link href="/style.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href='https://web.cricfoot.net/favico.png' rel='icon' type='image/x-icon'/>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5525538810839147" crossorigin="anonymous"></script>
-    <!-- https://grok.com/c/5e9ca764-fae5-4ebc-8356-27c74fb98087 -->
-</head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-all duration-300">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YoSinTV - Cricket | Football | Playing XI | Match Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://web.cricfoot.net/favico.png' rel='icon' type='image/x-icon'/>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-5525538810839147" crossorigin="anonymous"></script>
+    
+    <style>
+    /* --- CUSTOM CSS FOR LIGHT THEME FOTMOB STYLE (CENTERED LAYOUT) --- */
+    
+    body { 
+        font-family: 'Poppins', sans-serif; 
+        background-color: #f3f4f6; /* Light Gray Background (Default) */
+        color: #1f2937; /* Dark Text (Default) */
+    }
 
+    /* Dark Mode Body Overrides */
+    .dark body { 
+        background-color: #111827; /* Very Dark Gray */
+        color: #f3f4f6; /* Light Text */
+    }
+    
+    .match-schedule-container { max-width: 1000px; margin: 0 auto; padding: 0 1rem 3rem; box-sizing: border-box; }
+    
+    .league-title {
+        font-size: 1rem; font-weight: 700; margin: 20px auto 15px; 
+        background: #1d4ed8; /* Primary Blue */ 
+        color: white;
+        border-radius: 8px; text-align: center; padding: 12px; 
+        width: calc(100% - 1rem); max-width: 960px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Match Card */
+    .match-card {
+        display: block; border-radius: 12px; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        border: 1px solid #e5e7eb; 
+        padding: 16px; margin: 16px auto; 
+        background: #ffffff; /* Light Mode Background */
+        width: calc(100% - 1rem); max-width: 960px; 
+        transition: all 0.25s;
+    }
+    
+    /* Dark Mode Match Card */
+    .dark .match-card {
+        background: #374151; /* Darker Card Background */
+        border-color: #4b5563;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .match-card:hover { 
+        /* transform: translateY(-2px); <-- REMOVED the 'heart-beat' jump effect */
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15); /* Subtly increased shadow */
+        border-color: #93c5fd;
+    }
+    .dark .match-card:hover {
+        border-color: #60a5fa;
+    }
+
+    /* Content Layout */
+    .match-card-content { display: flex; flex-direction: column; gap: 10px; }
+    
+    /* Key change: Team Layout for Centering */
+    .match-row-teams { 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        width: 100%;
+    }
+    
+    /* * Team Containers: Updated to use flex properties for better mobile responsiveness.
+     * flex-grow: 1 ensures they fill available space.
+     * min-width: 0 is critical to allow flex items to shrink below their content size.
+     */
+    .match-team { 
+        flex-grow: 1; 
+        flex-basis: 0;
+        min-width: 0; /* Fixes mobile overflow issue */
+        display: flex; 
+        align-items: center; 
+        gap: 10px; 
+        flex-shrink: 1;
+    }
+
+    /* Home Team (Left): Pushed to the right edge of its container (closest to center) */
+    .match-team.home {
+        justify-content: flex-end; 
+    }
+
+    /* Away Team (Right): Pushed to the left edge of its container (closest to center) */
+    .match-team.away {
+        justify-content: flex-start;
+    }
+
+    /* Logo Styling (Position of logo is maintained relative to team name/center) */
+    .match-team img { 
+        width: 48px; height: 48px; 
+        border-radius: 0; /* User Request: Remove all rounded corners */
+        border: none; /* User Request: Remove all borders/square styling */
+        flex-shrink: 0;
+    }
+
+    /* Team Name Ordering and Alignment (Text aligns toward center) */
+    .match-team-name {
+        font-size: 1.125rem; 
+        font-weight: 700; 
+        color: #1f2937; /* Light Mode Text Color */
+        flex-grow: 1;
+        /* Desktop: Truncate long names with "..." */
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+    }
+
+    /* Dark Mode Team Name Color */
+    .dark .match-team-name {
+        color: #f3f4f6;
+    }
+    
+    /* Home team name is placed to the left of the logo and aligns right */
+    .match-team.home .match-team-name { 
+        order: -1; 
+        text-align: right; 
+    }
+    
+    /* Away team name is placed to the right of the logo and aligns left */
+    .match-team.away .match-team-name { 
+        order: 1; 
+        text-align: left; 
+    }
+
+    /* Status/Center Element (Fixed width to maintain centering) */
+    .match-center { 
+        flex-shrink: 0; 
+        min-width: 90px;
+        text-align: center;
+        display: flex; 
+        flex-direction: column; 
+        align-items: center;
+    }
+    
+    /* Local Time Styling */
+    .match-local-time {
+        font-size: 0.875rem; 
+        font-weight: 600;
+        color: #4b5563; /* Light Mode Text Color */
+        margin-bottom: 4px;
+        letter-spacing: 0.025em;
+    }
+
+    /* Dark Mode Local Time Styling */
+    .dark .match-local-time {
+        color: #9ca3af;
+    }
+
+    /* Status Indicator (Pill style) */
+    .match-status {
+        font-size: 0.75rem !important; 
+        font-weight: 700; 
+        padding: 4px 8px;
+        border-radius: 9999px; 
+        display: inline-block;
+        min-width: 60px; text-align: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        letter-spacing: 0.05em;
+        line-height: 1;
+    }
+    .match-status-countdown { background: #10b981; color: white; }
+    .match-status-live {
+        background: #d10000; color: white; 
+        animation: pulse 1.2s infinite;
+    }
+    .match-status-over { background: #6b7280; color: #ffffff; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+
+    /* Media Query for Mobile adjustments (Force wrap long names) */
+    @media (max-width: 640px) {
+        .match-team-name { 
+            font-size: 0.875rem; /* Smaller font for better fit */
+            /* Crucial changes to allow wrapping on mobile */
+            white-space: normal; 
+            overflow: visible; 
+            text-overflow: clip; 
+            line-height: 1.2; /* Tighter line spacing for two lines */
+        } 
+        .match-team img { width: 36px; height: 36px; }
+        .match-center { min-width: 80px; }
+        .match-card { padding: 12px; }
+        .match-team { gap: 8px; } /* Slightly reduced gap */
+    }
+
+    /* Header and Footer styles (Light Theme Defaults) */
+    header {
+      position: fixed; top: 0; width: 100%; 
+      background: white; /* Light Mode Header Background */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 100;
+    }
+
+    /* Dark Mode Header */
+    .dark header {
+        background: #1f2937; /* Dark Header Background */
+    }
+
+    .header-container {
+      max-width: 1000px; margin: 0 auto; padding: 0 1rem;
+      height: 70px; display: flex; justify-content: space-between; align-items: center;
+    }
+
+    /* DMCA and Footer Section Styles */
+    .dmca-section, .footer {
+      max-width: 1000px; margin: 2rem auto; padding: 1.5rem; 
+      background: #f8fafc; /* Light Mode Section Background */
+      border-radius: 12px; text-align: center;
+      color: inherit; /* Inherit text color from body (light mode: dark, dark mode: light) */
+    }
+
+    /* Dark Mode DMCA and Footer Sections */
+    .dark .dmca-section, .dark .footer {
+        background: #1f2937; /* Darker Blue-Gray Section Background */
+    }
+
+    /* Dark Mode Link Color Correction for Footer */
+    .dark .footer a {
+        color: #93c5fd; /* Lighter link color */
+    }
+
+    /* Toggle (Kept for functionality, but appearance defaults to off/light) */
+    .toggle { position: relative; display: inline-block; width: 46px; height: 24px; }
+    .toggle input { opacity: 0; width:0; height:0; }
+    .slider {
+      position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+      background: #ccc; border-radius: 30px; transition: .4s;
+    }
+    .slider:before {
+      position: absolute; content: ""; height: 20px; width: 20px; left: 2px; bottom: 2px;
+      background: white; border-radius: 50%; transition: .4s;
+    }
+    input:checked + .slider { background: #3b82f6; }
+    input:checked + .slider:before { transform: translateX(22px); }
+    </style>
+    
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+<!-- Header and Logo -->
 <header>
-  <div class="header-container">
-    <a href="https://www.yosin-tv.net/">
-      <img src="https://web.cricfoot.net/logo.png" alt="YoSinTV" style="height:65px;">
-    </a>
-    <label class="toggle">
-      <input type="checkbox" id="darkModeToggle">
-      <span class="slider"></span>
-    </label>
-  </div>
+    <div class="header-container">
+        <a href="https://www.yosin-tv.net/">
+            <img src="https://web.cricfoot.net/logo.png" alt="YoSinTV" style="height:65px;">
+        </a>
+        <label class="toggle">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
 </header>
 
-  <main style="padding-top: 78px;">
+<main style="padding-top: 78px;">
     <center class="my-3">
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5525538810839147"
-           data-ad-slot="4345862479" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5525538810839147"
+            data-ad-slot="4345862479" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </center>
 
     <div class="match-schedule-container"> 
-      <h2 class="league-title"> Upcoming Football Matches</h2>
-      <div id="cricket-list" class="match-schedule-list"></div>
+        <h2 class="league-title"> Upcoming Football Matches</h2>
+        <div id="cricket-list" class="match-schedule-list">
+            <!-- Match cards will be inserted here. Removed initial loading text for a natural load. -->
+        </div>
 
-      <center class="my-5">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5525538810839147"
-             data-ad-slot="4345862479" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      </center>
+        <center class="my-5">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5525538810839147"
+                data-ad-slot="4345862479" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </center>
     </div>
 
+<!-- DMCA and Footer Sections -->
     <section class="dmca-section">
-      <h2 class="text-2xl font-bold mb-3">YoSinTV - DMCA Notice</h2>
-      <p class="text-sm leading-relaxed">YoSinTV Doesn't host any media content on it own Site. Our site visitors might use external or third parties services to show content, (Example: Embedding media from sites like Bet365, Dailymotion , Streamable etc ..) We Notify all copyright owners, to discover that the links and media shared by visitors and contained within this site are hosted somewhere else on the web or embedded from other various sites like above.</p>
+        <h2 class="text-2xl font-bold mb-3">YoSinTV - DMCA Notice</h2>
+        <p class="text-sm leading-relaxed">YoSinTV Doesn't host any media content on it own Site. Our site visitors might use external or third parties services to show content, (Example: Embedding media from sites like Bet365, Dailymotion , Streamable etc ..) We Notify all copyright owners, to discover that the links and media shared by visitors and contained within this site are hosted somewhere else on the web or embedded from other various sites like above.</p>
     </section>
 
     <footer class="footer text-sm">
-      <a href="#about" class="text-blue-600 hover:underline mx-2">About</a> •
-      <a href="#contact" class="text-blue-600 hover:underline mx-2">Contact</a> •
-      <a href="#privacy" class="text-blue-600 hover:underline mx-2">Privacy Policy</a>
+        <a href="#about" class="text-blue-600 hover:underline mx-2">About</a> •
+        <a href="#contact" class="text-blue-600 hover:underline mx-2">Contact</a> •
+        <a href="#privacy" class="text-blue-600 hover:underline mx-2">Privacy Policy</a>
     </footer>
-  </main>
+</main>
 
-  <script>
-function _0x457c(){const _0x59940b=['\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22match-card-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22match-team\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','1148876AetRBz','1009697asMyGa','getElementById','sortPriority','sortValue','match-status\x20match-status-countdown','78cVQLhL','getTime','1091080FGjmrQ','team1','Match\x20End','href','getItem','team1_logo','dataset','floor','320950inmyXd','match-card','dark','createElement','darkMode','<p\x20class=\x22text-center\x20text-red-500\x20py-10\x22>Failed\x20to\x20load\x20matches</p>','body','innerHTML','12087972iaQuhA','toggle','map','className','2213624aEfavU','match_time','querySelectorAll','time','9549456JMPPgA','textContent','match-status\x20match-status-live','now','setItem','add','checked','appendChild','team2','classList','9vNiaTR','start','true','\x22\x20data-duration=\x22','https://yosintv-api.pages.dev/api/football.json','match-status\x20match-status-over','cricket-list','forEach','team2_logo','sort','\x22\x20alt=\x22','duration'];_0x457c=function(){return _0x59940b;};return _0x457c();}function _0x2565(_0x3ab259,_0x332a1b){const _0x457cae=_0x457c();return _0x2565=function(_0x2565ea,_0x2b9114){_0x2565ea=_0x2565ea-0xec;let _0x22fc26=_0x457cae[_0x2565ea];return _0x22fc26;},_0x2565(_0x3ab259,_0x332a1b);}const _0x4cbd3d=_0x2565;(function(_0x4be673,_0x900f91){const _0x3c5ef2=_0x2565,_0x22a7c0=_0x4be673();while(!![]){try{const _0x36c597=-parseInt(_0x3c5ef2(0x119))/0x1+parseInt(_0x3c5ef2(0xfd))/0x2+parseInt(_0x3c5ef2(0x10b))/0x3*(parseInt(_0x3c5ef2(0x118))/0x4)+parseInt(_0x3c5ef2(0x120))/0x5+-parseInt(_0x3c5ef2(0x11e))/0x6*(parseInt(_0x3c5ef2(0xf1))/0x7)+-parseInt(_0x3c5ef2(0x101))/0x8+parseInt(_0x3c5ef2(0xf9))/0x9;if(_0x36c597===_0x900f91)break;else _0x22a7c0['push'](_0x22a7c0['shift']());}catch(_0x4aa91b){_0x22a7c0['push'](_0x22a7c0['shift']());}}}(_0x457c,0xb24fc));const toggle=document[_0x4cbd3d(0x11a)]('darkModeToggle');localStorage[_0x4cbd3d(0xed)](_0x4cbd3d(0xf5))===_0x4cbd3d(0x10d)&&(document[_0x4cbd3d(0xf7)][_0x4cbd3d(0x10a)][_0x4cbd3d(0x106)](_0x4cbd3d(0xf3)),toggle[_0x4cbd3d(0x107)]=!![]);toggle['addEventListener']('change',()=>{const _0x49c261=_0x4cbd3d;document['body'][_0x49c261(0x10a)][_0x49c261(0xfa)]('dark'),localStorage[_0x49c261(0x105)]('darkMode',toggle[_0x49c261(0x107)]);});let allMatches=[];async function loadMatches(){const _0x3eff64=_0x4cbd3d;try{const _0x53a809=await fetch(_0x3eff64(0x10f));if(!_0x53a809['ok'])throw new Error();const _0x12e8d3=await _0x53a809['json']();allMatches=_0x12e8d3['matches'][_0x3eff64(0xfb)](_0x56ff55=>({..._0x56ff55})),renderMatches(),updateStatusAndSort();}catch{document[_0x3eff64(0x11a)](_0x3eff64(0x111))[_0x3eff64(0xf8)]=_0x3eff64(0xf6);}}function createCard(_0x56d076){const _0x5a1e7a=_0x4cbd3d,_0x4b0640=document[_0x5a1e7a(0xf4)]('a');return _0x4b0640[_0x5a1e7a(0xec)]=_0x56d076['details_url'],_0x4b0640[_0x5a1e7a(0xfc)]=_0x5a1e7a(0xf2),_0x4b0640[_0x5a1e7a(0xef)][_0x5a1e7a(0x100)]=_0x56d076[_0x5a1e7a(0xfe)]||_0x56d076['start'],_0x4b0640[_0x5a1e7a(0xef)][_0x5a1e7a(0x116)]=_0x56d076['duration']||0x5,_0x4b0640[_0x5a1e7a(0xf8)]=_0x5a1e7a(0x117)+_0x56d076[_0x5a1e7a(0xee)]+_0x5a1e7a(0x115)+_0x56d076[_0x5a1e7a(0x121)]+'\x22\x20onerror=\x22this.src=\x27https://via.placeholder.com/52?text=?\x27\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22match-team-name\x22>'+_0x56d076[_0x5a1e7a(0x121)]+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22match-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22match-vs\x22>VS</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22match-status\x22\x20data-time=\x22'+(_0x56d076[_0x5a1e7a(0xfe)]||_0x56d076['start'])+_0x5a1e7a(0x10e)+(_0x56d076[_0x5a1e7a(0x116)]||0x5)+'\x22>Loading...</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22match-team\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22'+_0x56d076[_0x5a1e7a(0x113)]+_0x5a1e7a(0x115)+_0x56d076[_0x5a1e7a(0x109)]+'\x22\x20onerror=\x22this.src=\x27https://via.placeholder.com/52?text=?\x27\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22match-team-name\x22>'+_0x56d076[_0x5a1e7a(0x109)]+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20',_0x4b0640;}function renderMatches(){const _0x565b5e=_0x4cbd3d,_0x1a809c=document[_0x565b5e(0x11a)](_0x565b5e(0x111));_0x1a809c[_0x565b5e(0xf8)]='',allMatches[_0x565b5e(0x112)](_0x1046fe=>_0x1a809c[_0x565b5e(0x108)](createCard(_0x1046fe)));}function updateStatusAndSort(){const _0x52c0da=_0x4cbd3d,_0x213f4e=Date[_0x52c0da(0x104)]();allMatches[_0x52c0da(0x112)](_0x3c84ec=>{const _0x5aeefc=_0x52c0da,_0x255f95=new Date(_0x3c84ec['match_time']||_0x3c84ec[_0x5aeefc(0x10c)])['getTime'](),_0x5888ca=(_0x3c84ec[_0x5aeefc(0x116)]||0x5)*0x36ee80,_0x3db2ce=_0x255f95+_0x5888ca;if(_0x213f4e>=_0x255f95&&_0x213f4e<_0x3db2ce)_0x3c84ec['sortPriority']=0x1,_0x3c84ec[_0x5aeefc(0x11c)]=-_0x255f95;else _0x213f4e<_0x255f95?(_0x3c84ec[_0x5aeefc(0x11b)]=0x2,_0x3c84ec[_0x5aeefc(0x11c)]=_0x255f95):(_0x3c84ec[_0x5aeefc(0x11b)]=0x3,_0x3c84ec['sortValue']=_0x3db2ce);}),allMatches[_0x52c0da(0x114)]((_0x496444,_0x207ebf)=>{const _0x398825=_0x52c0da;if(_0x496444[_0x398825(0x11b)]!==_0x207ebf[_0x398825(0x11b)])return _0x496444['sortPriority']-_0x207ebf['sortPriority'];return _0x496444[_0x398825(0x11c)]-_0x207ebf[_0x398825(0x11c)];}),renderMatches(),document[_0x52c0da(0xff)]('.match-status')[_0x52c0da(0x112)](_0x3f6a96=>{const _0x401010=_0x52c0da,_0x5521d1=new Date(_0x3f6a96[_0x401010(0xef)][_0x401010(0x100)])[_0x401010(0x11f)](),_0x26d711=(parseInt(_0x3f6a96[_0x401010(0xef)][_0x401010(0x116)])||0x5)*0x36ee80,_0xcca03b=_0x5521d1+_0x26d711;if(_0x213f4e>=_0xcca03b)_0x3f6a96['textContent']=_0x401010(0x122),_0x3f6a96[_0x401010(0xfc)]=_0x401010(0x110);else{if(_0x213f4e>=_0x5521d1)_0x3f6a96['textContent']='Live\x20Now',_0x3f6a96[_0x401010(0xfc)]=_0x401010(0x103);else{const _0x3489de=_0x5521d1-_0x213f4e,_0x3b7d29=Math['floor'](_0x3489de/0x36ee80),_0x4ef107=Math[_0x401010(0xf0)](_0x3489de%0x36ee80/0xea60),_0x4576d9=Math['floor'](_0x3489de%0xea60/0x3e8);_0x3f6a96[_0x401010(0x102)]=_0x3b7d29+'h\x20'+_0x4ef107+'m\x20'+_0x4576d9+'s',_0x3f6a96[_0x401010(0xfc)]=_0x401010(0x11d);}}}),setTimeout(updateStatusAndSort,0x3e8);}loadMatches();
-  </script>
+<script>
+    let allMatches = [];
+    let updateIntervalId;
+
+    // Dark Mode Logic (Kept for user's preference)
+    const toggle = document.getElementById('darkModeToggle');
+    // Set initial state
+    const updateTheme = (isDark) => {
+        if (isDark) {
+             // We only need to toggle the 'dark' class here.
+             // The rest of the styling is handled by the CSS using .dark prefix.
+             document.body.classList.add('dark', 'bg-gray-900', 'text-gray-100');
+             document.body.classList.remove('bg-gray-100', 'text-gray-900');
+        } else {
+             document.body.classList.remove('dark', 'bg-gray-900', 'text-gray-100');
+             document.body.classList.add('bg-gray-100', 'text-gray-900');
+        }
+    };
+
+    if (localStorage.getItem('darkMode') === 'true') {
+        updateTheme(true);
+        toggle.checked = true;
+    } else {
+        updateTheme(false);
+    }
+    
+    toggle.addEventListener('change', () => {
+        const isChecked = toggle.checked;
+        updateTheme(isChecked);
+        localStorage.setItem('darkMode', isChecked);
+    });
+
+    /**
+     * Formats an ISO date string into a readable local time string (e.g., 6:30 PM).
+     * This also removes any risk of displaying 'undefined'.
+     */
+    function formatMatchTime(isoString) {
+        try {
+            const date = new Date(isoString);
+            if (isNaN(date)) return 'Time TBD';
+
+            const timeOptions = { hour: 'numeric', minute: '2-digit', hour12: true };
+            return new Intl.DateTimeFormat(undefined, timeOptions).format(date);
+        } catch (e) {
+            return 'Time TBD';
+        }
+    }
+
+    /**
+     * Updates the text content and class of the countdown/status elements only.
+     * This runs every second to prevent continuous DOM re-rendering (flicker).
+     */
+    function updateCountdownDisplay() {
+        const now = Date.now();
+        
+        document.querySelectorAll('.match-status').forEach(el => {
+            const start = new Date(el.dataset.time).getTime();
+            const duration = (parseInt(el.dataset.duration) || 2) * 3600000;
+            const end = start + duration;
+
+            if (now >= end) {
+                // Match is Over (Final Time)
+                el.textContent = 'END';
+                if (!el.classList.contains('match-status-over')) {
+                     el.className = 'match-status match-status-over';
+                }
+            } else if (now >= start) {
+                // Match is Live
+                el.textContent = 'LIVE';
+                if (!el.classList.contains('match-status-live')) {
+                    el.className = 'match-status match-status-live';
+                }
+            } else {
+                // Match is Upcoming (Countdown)
+                const diff = start - now;
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                
+                let countdownText = '';
+                if (diff < 0) {
+                     countdownText = 'Starting Soon';
+                } else if (d > 0) {
+                    countdownText = `${d}D ${h}H`;
+                } else if (h > 0) {
+                    countdownText = `${h}H ${m}M`;
+                } else {
+                    const s = Math.floor((diff % (1000 * 60)) / 1000);
+                    countdownText = `${m}M ${s}S`;
+                }
+                
+                el.textContent = countdownText;
+                if (!el.classList.contains('match-status-countdown')) {
+                    el.className = 'match-status match-status-countdown';
+                }
+            }
+        });
+    }
+
+    // Generates the match card HTML
+    function createCard(m) {
+        // --- Added safe property access to prevent 'undefined' ---
+        const detailsUrl = m.details_url || '#';
+        const competition = m.competition || ''; // Use empty string as fallback
+        const team1Name = m.team1 || 'Home Team TBD';
+        const team2Name = m.team2 || 'Away Team TBD';
+        
+        const placeholderImg = "https://placehold.co/48x48/ccc/333?text=L";
+        // Use safe fallback for logos as well
+        const team1Logo = m.team1_logo || placeholderImg;
+        const team2Logo = m.team2_logo || placeholderImg;
+        
+        const logoOnError = `this.onerror=null;this.src='${placeholderImg}';`;
+        
+        const localTime = formatMatchTime(m.start || m.match_time);
+
+        // Conditional rendering of the competition header (Match Details text removed)
+        // If competition is empty, the div is not rendered at all.
+        const competitionHeader = competition ? 
+            `<div class="match-header">${competition}</div>` : 
+            '';
+
+        const a = document.createElement('a');
+        a.href = detailsUrl; // Use safe URL
+        a.className = 'match-card';
+        a.target = '_blank';
+        a.dataset.time = m.start || m.match_time;
+        a.dataset.duration = m.duration || 2;
+        
+        a.innerHTML = `
+            <div class="match-card-content">
+                <!-- Top Row: Competition/Match Date (Context) -->
+                ${competitionHeader}
+
+                <!-- Middle Row: Teams and Status (The main, centered row) -->
+                <div class="match-row-teams">
+                    <!-- Home Team (Left, Content aligned right) -->
+                    <div class="match-team home">
+                        <p class="match-team-name">${team1Name}</p>
+                        <img src="${team1Logo}" alt="${team1Name}" onerror="${logoOnError}">
+                    </div>
+                    
+                    <!-- Status/Center (Time above Countdown) -->
+                    <div class="match-center">
+                        <p class="match-local-time">${localTime}</p> 
+                        <p class="match-status" data-time="${m.start || m.match_time}" data-duration="${m.duration || 2}">Loading...</p>
+                    </div>
+
+                    <!-- Away Team (Right, Content aligned left) -->
+                    <div class="match-team away">
+                        <img src="${team2Logo}" alt="${team2Name}" onerror="${logoOnError}">
+                        <p class="match-team-name">${team2Name}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        return a;
+    }
+
+    function renderMatches() {
+        const list = document.getElementById('cricket-list');
+        list.innerHTML = ''; 
+        allMatches.forEach(match => list.appendChild(createCard(match)));
+    }
+    
+    /**
+     * Calculates sort priority, sorts the matches array, and renders the list once.
+     * This function should only be called on initial load.
+     */
+    function sortAndInitialRender(matchesArray) {
+        const now = Date.now();
+        
+        // 1. Calculate sorting priority and value
+        allMatches = matchesArray.map(m => {
+            const startTime = new Date(m.start || m.match_time).getTime();
+            const duration = (parseInt(m.duration) || 2) * 3600000; 
+            const endTime = startTime + duration;
+    
+            if (now >= startTime && now < endTime) {
+                m.sortPriority = 1; // Live/In-Progress
+                m.sortValue = startTime; 
+            } else if (now < startTime) {
+                m.sortPriority = 2; // Upcoming
+                m.sortValue = startTime;
+            } else {
+                m.sortPriority = 3; // Finished
+                m.sortValue = endTime;
+            }
+            return m;
+        });
+    
+        // 2. Sort the array
+        allMatches.sort((a, b) => {
+            if (a.sortPriority !== b.sortPriority) return a.sortPriority - b.sortPriority;
+            return a.sortValue - b.sortValue; 
+        });
+    
+        // 3. Render the full match list structure once
+        renderMatches(); 
+    }
+
+    // Loads data from the API and initiates rendering
+    async function loadMatches() {
+        if (updateIntervalId) clearInterval(updateIntervalId); 
+
+        // UPDATED: Changed API endpoint to football.json
+        const apiUrl = 'https://yosintv-api.pages.dev/api/football.json'; 
+        const list = document.getElementById('cricket-list');
+        // Removed explicit loading message for natural loading behavior
+        list.innerHTML = ''; 
+
+        try {
+            const res = await fetch(apiUrl);
+            if (!res.ok) {
+                throw new Error(`API failed with status: ${res.status}.`);
+            }
+            
+            const data = await res.json();
+            let matchesArray = [];
+
+            if (Array.isArray(data) && data.length > 0 && Array.isArray(data[0]?.matches)) {
+                matchesArray = data[0].matches;
+            } else if (data && Array.isArray(data.matches)) {
+                matchesArray = data.matches;
+            } else if (Array.isArray(data)) {
+                 matchesArray = data;
+            } 
+
+            if (matchesArray.length === 0) {
+                list.innerHTML = '<p class="text-center text-xl font-semibold text-gray-500 py-10">No upcoming matches found.</p>';
+                return;
+            }
+            
+            // Initial sort and render
+            sortAndInitialRender(matchesArray);
+            
+            // Start the non-flickering countdown timer (runs every second)
+            updateCountdownDisplay();
+            updateIntervalId = setInterval(updateCountdownDisplay, 1000);
+            
+        } catch (e) {
+            console.error(`Error loading matches: ${e.message}`);
+            list.innerHTML = '<p class="text-center text-xl font-semibold text-red-600 py-10">❌ Failed to load schedule. Check the API or your connection.</p>';
+            return;
+        }
+    }
+
+
+    document.addEventListener('DOMContentLoaded', loadMatches);
+</script>
 </body>
 </html>
