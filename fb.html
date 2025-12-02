@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YoSinTV - Cricket | Football | Playing XI | Match Preview</title>
+    
+    <!-- SEO Tags Added -->
+    <meta name="description" content="YoSinTV provides the latest live football and cricket match schedules, playing XIs, match previews, and highlights. Your source for sports TV links and match information.">
+    <meta name="keywords" content="YoSinTV, Live Football Schedule, Live Cricket Matches, Match Highlights, Playing XI, Live Score, Sports Streaming, DMCA Notice">
+    
+    <!-- Open Graph (OG) Tags for Social Sharing -->
+    <meta property="og:title" content="YoSinTV - Live Football & Cricket Match Schedule">
+    <meta property="og:description" content="Get the latest schedules, playing XIs, and match previews for all major cricket and football events.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yosin-tv.net/">
+    <!-- Replace this with your actual logo/image URL for best results -->
+    <meta property="og:image" content="https://web.cricfoot.net/logo.png"> 
+    
     <!-- Updated standard CDN for Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href='https://web.cricfoot.net/favico.png' rel='icon' type='image/x-icon'/>
@@ -212,17 +225,22 @@
       height: 70px; display: flex; justify-content: space-between; align-items: center;
     }
 
-    /* DMCA and Footer Section Styles */
+    /* DMCA and Footer Section Styles: BLOCK STYLE RESTORED */
     .dmca-section, .footer {
-      max-width: 1000px; margin: 2rem auto; padding: 1.5rem; 
-      background: #f8fafc; /* Light Mode Section Background */
-      border-radius: 12px; text-align: center;
-      color: inherit; /* Inherit text color from body (light mode: dark, dark mode: light) */
+      max-width: 1000px; 
+      margin: 2rem auto 0;
+      padding: 2rem 1.5rem; /* Re-added padding */
+      border-radius: 12px; /* Re-added rounded corners */
+      text-align: center;
+      background: #ffffff; /* Light Mode Background */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Re-added light shadow */
+      color: inherit;
     }
-
-    /* Dark Mode DMCA and Footer Sections */
+    
+    /* Dark Mode DMCA and Footer Background overrides */
     .dark .dmca-section, .dark .footer {
-        background: #1f2937; /* Darker Blue-Gray Section Background */
+        background: #1f2937; /* Darker background */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
     }
 
     /* Dark Mode Link Color Correction for Footer */
@@ -262,22 +280,23 @@
 </header>
 
 <main style="padding-top: 78px;">
-    <!-- Removed hardcoded ad blocks. Ads are now programmatically inserted. -->
     
     <div class="match-schedule-container"> 
+        
         <h2 class="league-title"> Upcoming Football Matches</h2>
         <div id="cricket-list" class="match-schedule-list">
             <!-- Match cards and interleaved mobile-only ads will be inserted here by JS -->
         </div>
     </div>
 
-<!-- DMCA and Footer Sections -->
-    <section class="dmca-section">
+<!-- DMCA and Footer Sections - BLOCK STYLE RESTORED -->
+    <section class="dmca-section pt-10">
         <h2 class="text-2xl font-bold mb-3">YoSinTV - DMCA Notice</h2>
         <p class="text-sm leading-relaxed">YoSinTV Doesn't host any media content on it own Site. Our site visitors might use external or third parties services to show content, (Example: Embedding media from sites like Bet365, Dailymotion , Streamable etc ..) We Notify all copyright owners, to discover that the links and media shared by visitors and contained within this site are hosted somewhere else on the web or embedded from other various sites like above.</p>
     </section>
 
-    <footer class="footer text-sm">
+    <footer class="footer text-sm pb-10">
+        <!-- Links kept in footer for standard web practice -->
         <a href="#about" class="text-blue-600 hover:underline mx-2">About</a> •
         <a href="#contact" class="text-blue-600 hover:underline mx-2">Contact</a> •
         <a href="#privacy" class="text-blue-600 hover:underline mx-2">Privacy Policy</a>
@@ -346,7 +365,7 @@
 
             if (now >= end) {
                 // Match is Over (Final Time)
-                el.textContent = 'FT';
+                el.textContent = 'END';
                 if (!el.classList.contains('match-status-over')) {
                      el.className = 'match-status match-status-over';
                 }
