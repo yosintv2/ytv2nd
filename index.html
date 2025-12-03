@@ -221,19 +221,6 @@
         return a;
     }
 
-    /**
-     * Creates the mobile-only ad element with the user-specified slot ID.
-     * UPDATED to use the 320x50 fixed size ad unit (slot 8381900703).
-     */
-    function createAdElement() {
-        const adContainer = document.createElement('div');
-        // 'block md:hidden' ensures it only displays on mobile screens (up to 768px).
-        // Added flex justify-center to properly center the fixed 320px ad.
-        adContainer.className = 'my-5 flex justify-center block md:hidden'; 
-        adContainer.innerHTML = ` `;
-        return adContainer;
-    }
-
     // UPDATED: Inserts mobile ads after every 3rd card.
     function renderMatches() {
         const list = document.getElementById('cricket-list');
@@ -243,10 +230,6 @@
             // 1. Append the match card
             list.appendChild(createCard(match));
 
-            // 2. Check if it's the 3rd, 6th, 9th, etc. card, and not the last card
-            if ((index + 1) % 3 === 0 && index < allMatches.length - 1) { 
-                const adElement = createAdElement();
-                list.appendChild(adElement);
 
                 // Now, push the ad to AdSense so it can request content
                 try {
