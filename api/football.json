@@ -18,16 +18,6 @@
       "start": "2025-12-05T05:00:00+09:00",
       "details_url": "https://blog.cricfoot.net/?yosintv=acmilan",
       "duration": 2
-    },
-
-    {
-      "team1": "Extremadura 1924",
-      "team1_logo": "https://cdn.livesoccertv.com/tt/images/teams/spain/logos/extremadura-1924.png",
-      "team2": "Sevilla",
-      "team2_logo": "https://cdn.livesoccertv.com/tt/images/teams/spain/logos/sevilla.png",
-      "start": "2025-12-05T05:00:00+09:00",
-      "details_url": "https://blog.cricfoot.net/?yosintv=sevilla",
-      "duration": 2
     }
   ]
 }
