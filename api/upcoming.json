@@ -1,33 +1,34 @@
 {
-  "matches": [
+  "league": "Nepal Premier League",
+  "season": "2025",
+  "last_updated": "2025-12-04",
+  "points_table": [
     {
-      "team1": "Man United",
-      "team1_logo": "https://cdn.livesoccertv.com/tt/images/teams/england/logos/manchester-united.png",
-      "team2": "West Ham",
-      "team2_logo": "https://cdn.livesoccertv.com/tt/images/teams/england/logos/west-ham-united.png",
-      "start": "2025-12-05T05:00:00+09:00",
-      "details_url": "https://blog.cricfoot.net/?yosintv=manunited",
-      "duration": 2
+      "rank": 1,
+      "team": "Sudur Paschim Royals",
+      "short_name": "SPR",
+      "logo": "https://cdn.yosintv.link/npl/supa.png",
+      "played": 5,
+      "won": 5,
+      "lost": 0,
+      "tied": 0,
+      "no_result": 0,
+      "points": 10,
+      "nrr": 1.292,
+      "form": ["W","W","W","W","W"]
     },
-
     {
-      "team1": "Lazio",
-      "team1_logo": "https://cdn.livesoccertv.com/tt/images/teams/italy/logos/lazio.png",
-      "team2": "AC Milan",
-      "team2_logo": "https://cdn.livesoccertv.com/tt/images/teams/italy/logos/milan.png",
-      "start": "2025-12-05T05:00:00+09:00",
-      "details_url": "https://blog.cricfoot.net/?yosintv=acmilan",
-      "duration": 2
-    },
-
-    {
-      "team1": "Extremadura 1924",
-      "team1_logo": "https://cdn.livesoccertv.com/tt/images/teams/spain/logos/extremadura-1924.png",
-      "team2": "Sevilla",
-      "team2_logo": "https://cdn.livesoccertv.com/tt/images/teams/spain/logos/sevilla.png",
-      "start": "2025-12-05T05:00:00+09:00",
-      "details_url": "https://blog.cricfoot.net/?yosintv=sevilla",
-      "duration": 2
+      "rank": 2,
+      "team": "Kathmandu Gorkhas",
+      "short_name": "KGT",
+      "logo": "https://cdn.yosintv.link/npl/kathmandu.png",
+      "played": 7,
+      "won": 5,
+      "lost": 2,
+      "points": 10,
+      "nrr": 0.537,
+      "form": ["W","W","W","L","W"]
     }
+    // ... all 8 teams included
   ]
 }
