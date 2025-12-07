@@ -1,10 +1,10 @@
 {
     "matches": [
         {
-            "team1": "Brighton",
-            "team1_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/10204.png",
-            "team2": "West Ham",
-            "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8654.png",
+            "team1": "Inter Miami",
+            "team1_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8636.png",
+            "team2": "Real Madrid",
+            "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8633.png",
             "start": "2025-12-07T23:00:00+09:00",
             "details_url": "https://blog.cricfoot.net/?yosintv=westham",
             "duration": 2
@@ -13,7 +13,7 @@
         {
             "team1": "Elche",
             "team1_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/10268.png",
-            "team2": "Girona FC",
+            "team2": "Girona",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/7732.png",
             "start": "2025-12-07T22:00:00+09:00",
             "details_url": "https://blog.cricfoot.net/?yosintv=girona",
