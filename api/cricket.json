@@ -1,37 +1,23 @@
 {
-  "matches": [
+    "matches": [
+        {
+            "team1": "Sudurpaschim Royals",
+            "team1_logo": "https://cdn.yosintv.link/npl/supa.png",
+            "team2": "Biratnagar Kings",
+            "team2_logo": "https://cdn.yosintv.link/npl/biratnagar.png",
+            "start": "2025-12-09T19:15:00+09:00",
+            "details_url": "https://blog.cricfoot.net/?yosintv=npl",
+            "duration": 5
+        },
 
-{
-  "team1": "New Zealand",
-  "team1_logo": "https://aimages.willow.tv/teamLogos/newzealand.png",
-  "team2": "West Indies",
-  "team2_logo": "https://aimages.willow.tv/teamLogos/westindies.png",
-  "start": "2025-12-07T07:00:00+09:00",
-  "details_url": "https://blog.cricfoot.net/?yosintv=newzealand",
-  "duration": 10
-},
-    
-{
-  "team1": "Australia",
-  "team1_logo": "https://aimages.willow.tv/teamLogos/australia.png",
-  "team2": "England", 
-  "team2_logo": "https://aimages.willow.tv/teamLogos/england.png",
-  "start": "2025-12-07T13:00:00+09:00",
-  "details_url": "https://blog.cricfoot.net/?yosintv=england",
-  "duration": 10
-},
-
-{
-  "team1": "Janakpur Bolts",
-  "team1_logo": "https://cdn.yosintv.link/npl/janakpur.png",
-  "team2": "Karnali Yaks",
-  "team2_logo": "https://cdn.yosintv.link/npl/karnali.png",
-  "start": "2025-12-07T18:45:00+09:00",
-  "details_url": "https://blog.cricfoot.net/?yosintv=npl",
-  "duration": 5
-}
-
-
-
-]
+        {
+            "team1": "Kathmandu Gorkhas",
+            "team1_logo": "https://cdn.yosintv.link/npl/kathmandu.png",
+            "team2": "Lumbini Lions",
+            "team2_logo": "https://cdn.yosintv.link/npl/lumbini.png",
+            "start": "2025-12-10T19:15:00+09:00",
+            "details_url": "https://blog.cricfoot.net/?yosintv=npl",
+            "duration": 5
+        }
+    ]
 }
