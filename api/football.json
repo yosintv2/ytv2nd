@@ -1,7 +1,7 @@
 {
     "matches": [
         {
-            "team1": "Atlético Madrid",
+            "team1": "Atlético ",
             "team1_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/9906.png",
             "team2": "Valencia",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/10267.png",
@@ -86,7 +86,7 @@
             "team2": "Fulham",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/9879.png",
             "start": "2025-12-14T02:30:00+09:00",
-            "details_url": "https://yosintv2.github.io/ads/ak.html?url=_____",
+            "details_url": "https://yosintv2.github.io/ads/ak.html?url=387694",
             "duration": 2
         },
 
@@ -96,7 +96,7 @@
             "team2": "Elche",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/10268.png",
             "start": "2025-12-14T00:15:00+09:00",
-            "details_url": "https://yosintv2.github.io/ads/ak.html?url=_____",
+            "details_url": "https://yosintv2.github.io/ads/ak.html?url=563268",
             "duration": 2
         },
 
@@ -106,7 +106,7 @@
             "team2": "Lazio",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8543.png",
             "start": "2025-12-14T02:00:00+09:00",
-            "details_url": "https://yosintv2.github.io/ads/ak.html?url=_____",
+            "details_url": "https://yosintv2.github.io/ads/ak.html?url=285067",
             "duration": 2
         },
 
@@ -116,7 +116,7 @@
             "team2": "Cagliari",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8529.png",
             "start": "2025-12-14T04:45:00+09:00",
-            "details_url": "https://yosintv2.github.io/ads/ak.html?url=_____",
+            "details_url": "https://yosintv2.github.io/ads/ak.html?url=532081",
             "duration": 2
         }
     ]
