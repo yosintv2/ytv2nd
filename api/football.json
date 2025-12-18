@@ -11,26 +11,6 @@
         },
 
         {
-            "team1": "Ourense CF",
-            "team1_logo": "https://cdn.yosintv.link/football.png",
-            "team2": "Athletic Club",
-            "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8315.png",
-            "start": "2025-12-19T03:00:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=athletic",
-            "duration": 2.2
-        },
-
-        {
-            "team1": "Burgos",
-            "team1_logo": "https://cdn.yosintv.link/football.png",
-            "team2": "Getafe",
-            "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8305.png",
-            "start": "2025-12-19T03:00:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=getafe",
-            "duration": 2.2
-        },
-
-        {
             "team1": "Real Murcia",
             "team1_logo": "https://cdn.yosintv.link/football.png",
             "team2": "Real Betis",
@@ -48,6 +28,27 @@
             "start": "2025-12-19T01:00:00+09:00",
             "details_url": "https://blog.cricfoot.net/?yosintv=morocco",
             "duration": 2.2
+        },
+
+        {
+            "team1": "Ourense CF",
+            "team1_logo": "https://cdn.yosintv.link/football.png",
+            "team2": "Athletic Club",
+            "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8315.png",
+            "start": "2025-12-19T03:00:00+09:00",
+            "details_url": "https://yosintv2.github.io/ads/ak.html?url=484845",
+            "duration": 2.2
+        },
+
+        {
+            "team1": "Burgos",
+            "team1_logo": "https://cdn.yosintv.link/football.png",
+            "team2": "Getafe",
+            "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8305.png",
+            "start": "2025-12-19T03:00:00+09:00",
+            "details_url": "https://yosintv2.github.io/ads/ak.html?url=356042",
+            "duration": 2.2
         }
+        
     ]
 }
