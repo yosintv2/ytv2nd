@@ -6,7 +6,7 @@
             "team2": "Chelsea",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8455.png",
             "start": "2025-12-20T21:30:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=chelsea",
+            "details_url": "https://www.cricfoot.net/match?yosintv=chelsea",
             "duration": 2.2
         },
 
@@ -16,7 +16,7 @@
             "team2": "Celta Vigo",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/9910.png",
             "start": "2025-12-20T22:00:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=celtavigo ",
+            "details_url": "https://www.cricfoot.net/match?yosintv=celtavigo ",
             "duration": 2.2
         },
 
@@ -26,7 +26,7 @@
             "team2": "Brentford",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/9937.png",
             "start": "2025-12-21T00:00:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=wolves",
+            "details_url": "https://www.cricfoot.net/match?yosintv=wolves",
             "duration": 2.2
         },
 
@@ -36,7 +36,7 @@
             "team2": "Burnley",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8191.png",
             "start": "2025-12-21T00:00:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=bournemouth",
+            "details_url": "https://www.cricfoot.net/match?yosintv=bournemouth",
             "duration": 2.2
         },
 
@@ -46,7 +46,7 @@
             "team2": "West Ham",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8654.png",
             "start": "2025-12-21T00:00:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=mancity",
+            "details_url": "https://www.cricfoot.net/match?yosintv=mancity",
             "duration": 2.2
         },
 
@@ -56,7 +56,7 @@
             "team2": "Liverpool",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8650.png",
             "start": "2025-12-21T02:30:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=liverpool",
+            "details_url": "https://www.cricfoot.net/match?yosintv=liverpool",
             "duration": 2.2
         },
 
@@ -66,7 +66,7 @@
             "team2": "Arsenal",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/9825.png",
             "start": "2025-12-21T05:00:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=arsenal",
+            "details_url": "https://www.cricfoot.net/match?yosintv=arsenal",
             "duration": 2.2
         },
 
@@ -76,7 +76,7 @@
             "team2": "Sevilla",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8302.png",
             "start": "2025-12-21T05:00:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=realmadrid",
+            "details_url": "https://www.cricfoot.net/match?yosintv=realmadrid",
             "duration": 2.2
         },
 
@@ -86,7 +86,7 @@
             "team2": "Roma",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8686.png",
             "start": "2025-12-21T04:45:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=juventus",
+            "details_url": "https://www.cricfoot.net/match?yosintv=juventus",
             "duration": 2.2
         },
 
@@ -96,7 +96,7 @@
             "team2": "Bayer Leverkusen",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8178.png",
             "start": "2025-12-21T02:30:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=leverkusen",
+            "details_url": "https://www.cricfoot.net/match?yosintv=leverkusen",
             "duration": 2.2
         },
 
@@ -106,7 +106,7 @@
             "team2": "Sunderland",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/8472.png",
             "start": "2025-12-21T00:00:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=brighton",
+            "details_url": "https://www.cricfoot.net/match?yosintv=brighton",
             "duration": 2.2
         },
 
@@ -116,7 +116,7 @@
             "team2": "Crystal Palace",
             "team2_logo": "https://images.fotmob.com/image_resources/logo/teamlogo/9826.png",
             "start": "2025-12-21T05:00:00+09:00",
-            "details_url": "https://blog.cricfoot.net/?yosintv=leeds",
+            "details_url": "https://www.cricfoot.net/match?yosintv=leeds",
             "duration": 2.2
         },
 
