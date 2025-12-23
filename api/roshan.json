@@ -1,17 +1,166 @@
-{
-  "name": "Roshan Kunwar",
-  "profilePicture": "https://scontent-nrt1-2.xx.fbcdn.net/v/t39.30808-1/432616210_7186913691427963_4932128658413103410_n.jpg?stp=c0.0.240.240a_dst-jpg_s240x240_tt6&_nc_cat=102&_nc_cb=99be929b-f3b7c874&ccb=1-7&_nc_sid=e99d92&_nc_ohc=VzjCix5DGFsQ7kNvwGrx-Qn&_nc_oc=AdlI7potwa87q9dXg478IF_yXKgDjNkjkBnZfFoAe61OwoCEhRkODonC6c7Kg6k5WQs&_nc_zt=24&_nc_ht=scontent-nrt1-2.xx&_nc_gid=iwDPE-1gAu9bEFsiREgbaw&oh=00_Afm-C2-06FDZOst8NwTIQdaQAPiMOihTKocFBCV6eCegeA&oe=69501E21",
-  "livesIn": "Kathmandu, Nepal",
-  "from": "Dhangadhi, Nepal",
-  "work": "No workplaces to show",
-  "education": [
-    "Studied at Trinity International College, Dillibazar Height, KTM",
-    "Went to NAIHS – College of Medicine, Kathmandu",
-    "Went to SSES"
-  ],
-  "placesLived": [
-    { "location": "Kathmandu, Nepal", "description": "Current city" },
-    { "location": "Dhangadhi", "description": "Hometown" },
-    { "location": "Dillibazar, Kathmandu, Nepal", "description": "" }
-  ]
-} 
+[
+  {
+    "name": "Aarav Sharma",
+    "profilePicture": "https://randomuser.me/api/portraits/men/32.jpg",
+    "livesIn": "Kathmandu, Nepal",
+    "from": "Biratnagar, Nepal",
+    "work": "Software Engineer at Deerwalk Inc.",
+    "education": [
+      "Studied Computer Engineering at Pulchowk Campus",
+      "Went to St. Xavier's College, Maitighar",
+      "Went to Galaxy Public School"
+    ],
+    "placesLived": [
+      { "location": "Kathmandu, Nepal", "description": "Current city" },
+      { "location": "Biratnagar, Nepal", "description": "Hometown" }
+    ]
+  },
+  {
+    "name": "Priya Gurung",
+    "profilePicture": "https://randomuser.me/api/portraits/women/45.jpg",
+    "livesIn": "Pokhara, Nepal",
+    "from": "Gorkha, Nepal",
+    "work": "Tour Guide at Lakeside Adventures",
+    "education": [
+      "Studied Tourism Management at Pokhara University",
+      "Went to SOS Hermann Gmeiner School",
+      "Went to Gandaki Boarding School"
+    ],
+    "placesLived": [
+      { "location": "Pokhara, Nepal", "description": "Current city" },
+      { "location": "Gorkha, Nepal", "description": "Hometown" },
+      { "location": "Kathmandu, Nepal", "description": "" }
+    ]
+  },
+  {
+    "name": "Rajesh Thapa",
+    "profilePicture": "https://randomuser.me/api/portraits/men/67.jpg",
+    "livesIn": "Lalitpur, Nepal",
+    "from": "Dhankuta, Nepal",
+    "work": "No workplaces to show",
+    "education": [
+      "Studied MBBS at NAIHS – College of Medicine, Kathmandu",
+      "Went to Trinity International College, Dillibazar",
+      "Went to SSES"
+    ],
+    "placesLived": [
+      { "location": "Lalitpur, Nepal", "description": "Current city" },
+      { "location": "Dhankuta, Nepal", "description": "Hometown" }
+    ]
+  },
+  {
+    "name": "Nisha Tamang",
+    "profilePicture": "https://randomuser.me/api/portraits/women/23.jpg",
+    "livesIn": "Bharatpur, Nepal",
+    "from": "Ilam, Nepal",
+    "work": "Teacher at Little Angels' School",
+    "education": [
+      "B.Ed. at Tribhuvan University",
+      "Went to Xavier International College",
+      "Went to Ilam Model School"
+    ],
+    "placesLived": [
+      { "location": "Bharatpur, Nepal", "description": "Current city" },
+      { "location": "Ilam, Nepal", "description": "Hometown" }
+    ]
+  },
+  {
+    "name": "Kiran Magar",
+    "profilePicture": "https://randomuser.me/api/portraits/men/81.jpg",
+    "livesIn": "Birgunj, Nepal",
+    "from": "Syangja, Nepal",
+    "work": "Business Owner - Import/Export",
+    "education": [
+      "Studied BBA at Kathmandu University",
+      "Went to Budhanilkantha School",
+      "Went to Syangja Higher Secondary School"
+    ],
+    "placesLived": [
+      { "location": "Birgunj, Nepal", "description": "Current city" },
+      { "location": "Syangja, Nepal", "description": "Hometown" },
+      { "location": "Kathmandu, Nepal", "description": "" }
+    ]
+  },
+  {
+    "name": "Sofia Rai",
+    "profilePicture": "https://randomuser.me/api/portraits/women/56.jpg",
+    "livesIn": "Kathmandu, Nepal",
+    "from": "Jhapa, Nepal",
+    "work": "Graphic Designer (Freelance)",
+    "education": [
+      "Studied Multimedia at Islington College",
+      "Went to Reliance International Academy",
+      "Went to Shree Shikshya Sadan"
+    ],
+    "placesLived": [
+      { "location": "Kathmandu, Nepal", "description": "Current city" },
+      { "location": "Jhapa, Nepal", "description": "Hometown" }
+    ]
+  },
+  {
+    "name": "Anil KC",
+    "profilePicture": "https://randomuser.me/api/portraits/men/19.jpg",
+    "livesIn": "Butwal, Nepal",
+    "from": "Palpa, Nepal",
+    "work": "Civil Engineer at Department of Roads",
+    "education": [
+      "Studied Civil Engineering at IOE, Pulchowk",
+      "Went to St. Anne's Secondary School",
+      "Went to Tansen Mission School"
+    ],
+    "placesLived": [
+      { "location": "Butwal, Nepal", "description": "Current city" },
+      { "location": "Palpa, Nepal", "description": "Hometown" }
+    ]
+  },
+  {
+    "name": "Riya Limbu",
+    "profilePicture": "https://randomuser.me/api/portraits/women/78.jpg",
+    "livesIn": "Dharan, Nepal",
+    "from": "Taplejung, Nepal",
+    "work": "Nurse at B.P. Koirala Institute of Health Sciences",
+    "education": [
+      "Studied Nursing at BPKIHS",
+      "Went to Sukraraj Secondary School",
+      "Went to Pathibhara Boarding School"
+    ],
+    "placesLived": [
+      { "location": "Dharan, Nepal", "description": "Current city" },
+      { "location": "Taplejung, Nepal", "description": "Hometown" },
+      { "location": "Kathmandu, Nepal", "description": "" }
+    ]
+  },
+  {
+    "name": "Suman Pandey",
+    "profilePicture": "https://randomuser.me/api/portraits/men/44.jpg",
+    "livesIn": "Hetauda, Nepal",
+    "from": "Baglung, Nepal",
+    "work": "No workplaces to show",
+    "education": [
+      "Studied Hotel Management at Nepal Academy of Tourism",
+      "Went to Himalayan WhiteHouse College",
+      "Went to Gorkha English Boarding School"
+    ],
+    "placesLived": [
+      { "location": "Hetauda, Nepal", "description": "Current city" },
+      { "location": "Baglung, Nepal", "description": "Hometown" }
+    ]
+  },
+  {
+    "name": "Elena Bhatta",
+    "profilePicture": "https://randomuser.me/api/portraits/women/91.jpg",
+    "livesIn": "Kathmandu, Nepal",
+    "from": "Nepalgunj, Nepal",
+    "work": "Marketing Manager at Chaudhary Group",
+    "education": [
+      "MBA at Ace Institute of Management",
+      "Studied BBA at Kathmandu College of Management",
+      "Went to Brightland Secondary School"
+    ],
+    "placesLived": [
+      { "location": "Kathmandu, Nepal", "description": "Current city" },
+      { "location": "Nepalgunj, Nepal", "description": "Hometown" },
+      { "location": "Pokhara, Nepal", "description": "" }
+    ]
+  }
+]
